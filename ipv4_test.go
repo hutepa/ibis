@@ -1,4 +1,4 @@
-package water
+package ibis
 
 import (
 	"net"
@@ -6,7 +6,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/songgao/water/waterutil"
+	"github.com/songgao/ibis/ibisutil"
 )
 
 const BUFFERSIZE = 1522
@@ -54,24 +54,24 @@ readFrame:
 	for {
 		select {
 		case buffer := <-dataCh:
-			ethertype := waterutil.MACEthertype(buffer)
-			if ethertype != waterutil.IPv4 {
+			ethertype := ibisutil.MACEthertype(buffer)
+			if ethertype != ibisutil.IPv4 {
 				continue readFrame
 			}
-			if !waterutil.IsBroadcast(waterutil.MACDestination(buffer)) {
+			if !ibisutil.IsBroadcast(ibisutil.MACDestination(buffer)) {
 				continue readFrame
 			}
-			packet := waterutil.MACPayload(buffer)
-			if !waterutil.IsIPv4(packet) {
+			packet := ibisutil.MACPayload(buffer)
+			if !ibisutil.IsIPv4(packet) {
 				continue readFrame
 			}
-			if !waterutil.IPv4Source(packet).Equal(self) {
+			if !ibisutil.IPv4Source(packet).Equal(self) {
 				continue readFrame
 			}
-			if !waterutil.IPv4Destination(packet).Equal(brd) {
+			if !ibisutil.IPv4Destination(packet).Equal(brd) {
 				continue readFrame
 			}
-			if waterutil.IPv4Protocol(packet) != waterutil.ICMP {
+			if ibisutil.IPv4Protocol(packet) != ibisutil.ICMP {
 				continue readFrame
 			}
 			t.Logf("received broadcast frame: %#v\n", buffer)

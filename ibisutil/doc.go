@@ -1,5 +1,5 @@
 /*
-Package waterutil provides utility functions for interpreting TUN/TAP MAC farme headers and IP packet headers. It defines some constants such as protocol numbers and ethernet frame types. Use waterutil along with package water to work with TUN/TAP interface data.
+Package ibisutil provides utility functions for interpreting TUN/TAP MAC farme headers and IP packet headers. It defines some constants such as protocol numbers and ethernet frame types. Use ibisutil along with package ibis to work with TUN/TAP interface data.
 
 Frames/packets are interpreted in following format (as in TUN/TAP devices):
 
@@ -48,4 +48,4 @@ TUN - IPv4 Packet:
   +---------------------------------------------------------------------------------------------------------------+
 
 */
-package waterutil
+package ibisutil

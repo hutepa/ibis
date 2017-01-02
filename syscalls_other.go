@@ -1,6 +1,6 @@
 // +build NOT (linux OR darwin)
 
-package water
+package ibis
 
 import "errors"
 

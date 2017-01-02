@@ -1,6 +1,6 @@
 // +build darwin
 
-package water
+package ibis
 
 import (
 	"errors"

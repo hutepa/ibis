@@ -1,4 +1,4 @@
-package water
+package ibis
 
 import "io"
 

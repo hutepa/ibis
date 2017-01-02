@@ -1,6 +1,6 @@
 // +build !linux
 
-package water
+package ibis
 
 import (
 	"net"
